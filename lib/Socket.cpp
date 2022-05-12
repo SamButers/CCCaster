@@ -73,12 +73,12 @@ void Socket::init()
     if ( isClient() && isUDP() )
     {
         // For client UDP sockets, bind to any available local port
-        addrInfo = getAddrInfo ( "", 0, true, true );
+        addrInfo = getAddrInfo ( "", 0, false, true );
     }
     else
     {
         // Otherwise bind to the given address and port
-        addrInfo = getAddrInfo ( address.addr, address.port, true, isServer() || isUDP() );
+        addrInfo = getAddrInfo ( address.addr, address.port, false, isServer() || isUDP() );
     }
 
     addrinfo *res = addrInfo.get();
